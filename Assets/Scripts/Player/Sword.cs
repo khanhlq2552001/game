@@ -17,6 +17,7 @@ public class Sword : MonoBehaviour
         player = GetComponentInParent<Player>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         animator = GetComponent<Animator>();
+        playerController = new PlayerController();
     }
 
     private void OnEnable()
