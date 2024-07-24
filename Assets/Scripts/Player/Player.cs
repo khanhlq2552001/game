@@ -2,10 +2,9 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     public bool FacingLeft { get { return facingLeft; } }
-    public static Player Instance;
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -23,7 +22,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Instance=this;  
+        base.Awake();
         playerController = new PlayerController();
         myTrailRenderer.emitting = false;
         rb = GetComponent<Rigidbody2D>();
